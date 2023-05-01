@@ -57,12 +57,6 @@ history = model.fit_generator(
         validation_data=val_generator,
         validation_steps=val_generator.samples/val_generator.batch_size)
 
-# Evaluate the model on the test data
-test_loss, test_accuracy = model.evaluate_generator(test_generator, steps=len(test_generator))
-print('Test Loss: {:.2f}'.format(test_loss))
-print('Test Accuracy: {:.2f}%'.format(test_accuracy * 100))
-
-
 # Visualize the training and validation loss and accuracy
 import matplotlib.pyplot as plt
 
