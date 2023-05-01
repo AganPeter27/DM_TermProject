@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
 
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
@@ -10,13 +5,12 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.utils import to_categorical
 
-# Define the number of classes in your dataset
 num_classes = 8
 
 # Set the input image dimensions
 img_width, img_height = 224, 224
 
-# Define the training and validation data directories
+# Define the training and validation data 
 train_dir = "/kaggle/input/mango-leaf-disease-dataset/"
 val_dir = "/kaggle/input/mango-leaf-disease-dataset/"
 
@@ -36,11 +30,11 @@ val_generator = val_datagen.flow_from_directory(
         batch_size=32,
         class_mode='categorical')
 
-# Convert the labels to one-hot encoding
+# Convert labels to one-hot encoding
 train_labels = to_categorical(train_generator.classes, num_classes=num_classes)
 val_labels = to_categorical(val_generator.classes, num_classes=num_classes)
 
-# Define the model architecture
+#model architecture
 model = Sequential()
 model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(img_width, img_height, 3)))
 model.add(MaxPooling2D((2, 2)))
@@ -88,8 +82,6 @@ plt.ylabel('Accuracy')
 plt.legend()
 plt.show()
 
-
-# In[ ]:
 
 
 
